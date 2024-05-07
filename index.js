@@ -9,7 +9,8 @@ function calculateTotal() {
   const tipValue = tipInput.value;
   const extraValue = extraInput.value;
   const totalValue = billValue * (1 + tipValue / 100);
-  totalSpan.innerText = totalValue.toFixed(2);
+  const totalValue2 = totalValue + extraValue;
+  totalSpan.innerText = totalValue2.toFixed(2);
 }
 
 btnEl.addEventListener("click", calculateTotal);
