@@ -1,23 +1,25 @@
 const btnEl = document.getElementById("calculate");
-const billInput = document.getElementById("bill");
-const tipInput = document.getElementById("tip");
-const extraInput = document.getElementById("extra");
+const forceInput = document.getElementById("force");
+const distanceInput = document.getElementById("distance");
+const moaInput = document.getElementById("moa");
+const yInput = document.getElementById("y");
 const totalSpan = document.getElementById("total");
 
 function calculateTotal() {
-  const billValue = parseFloat(billInput.value);
-  const tipValue = parseFloat(tipInput.value);
-  const extraValue = parseFloat(extraInput.value);
+  const forceValue = parseFloat(forceInput.value);
+  const distanceValue = parseFloat(distanceInput.value);
+  const yValue = parseFloat(yInput.value);
+  const moaValue = parseFloat(moaInput.value);
 
   // Check if any of the values are not valid numbers (NaN)
-  if (isNaN(billValue) || isNaN(tipValue) || isNaN(extraValue)) {
+  if (isNaN(forceValue) || isNaN(distanceValue) || isNaN(yValue)) {
     totalSpan.innerText = "Invalid Input. Please enter numbers only.";
     return;  // Exit the function if there's invalid input
   }
 
-  const totalValue = billValue * (1 + tipValue / 100);
-  const totalValue2 = totalValue + extraValue;
-  totalSpan.innerText = totalValue2.toFixed(2);
+  const momentValue = forceValue * distanceValue;
+  const stressValue = (momentValue * yValue) / moaValue;
+  totalSpan.innerText = stressValue.toFixed(2);
 }
 
 btnEl.addEventListener("click", calculateTotal);
