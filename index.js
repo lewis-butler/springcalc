@@ -19,7 +19,7 @@ function calculateTotal() {
 
   const momentValue = forceValue * distanceValue;
   const stressValue = (momentValue * yValue) / moaValue;
-  totalSpan.innerText = stressValue.toFixed(2);
+  totalSpan.innerText = stressValue.toFixed(0);
 }
 
 btnEl.addEventListener("click", calculateTotal);
